@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html { scroll-behavior: smooth; }
+}
+
+@layer components {
+  .glass {
+    background: rgba(18, 18, 26, 0.8);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glow-accent {
+    box-shadow: 0 0 20px rgba(192, 132, 252, 0.3);
+  }
+
+  .card-hover {
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  }
+
+  .btn-primary {
+    @apply bg-purple-500 hover:bg-purple-400 text-white font-semibold px-6 py-2.5 rounded-xl 
+           transition-all duration-200 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-secondary {
+    @apply border border-purple-500/40 hover:border-purple-400 text-purple-300 hover:text-purple-200 
+           font-medium px-5 py-2 rounded-xl transition-all duration-200 active:scale-95;
+  }
+
+  .input-field {
+    @apply w-full bg-aura-card border border-aura-border rounded-xl px-4 py-3 
+           text-aura-text placeholder-aura-muted 
+           focus:outline-none focus:border-purple-500 focus:ring-1 focus:ring-purple-500/30
+           transition-all duration-200;
+  }
+
+  .skeleton {
+    background: linear-gradient(90deg, #12121A 25%, #1E1E2E 50%, #12121A 75%);
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+
+  .mood-badge {
+    @apply text-xs font-semibold px-2.5 py-1 rounded-full uppercase tracking-wide;
+  }
+}
+
+/* Mood colors */
+.mood-happy    { background: rgba(251, 191, 36, 0.15); color: #FCD34D; border: 1px solid rgba(252, 211, 77, 0.3); }
+.mood-sad      { background: rgba(96, 165, 250, 0.15); color: #93C5FD; border: 1px solid rgba(147, 197, 253, 0.3); }
+.mood-party    { background: rgba(244, 114, 182, 0.15); color: #F9A8D4; border: 1px solid rgba(249, 168, 212, 0.3); }
+.mood-chill    { background: rgba(52, 211, 153, 0.15); color: #6EE7B7; border: 1px solid rgba(110, 231, 183, 0.3); }
+.mood-romantic { background: rgba(252, 165, 165, 0.15); color: #FCA5A5; border: 1px solid rgba(252, 165, 165, 0.3); }
+
+/* Noise grain overlay on bg */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
