@@ -1,4 +1,5 @@
 {
+  "name": "auramusic-frontend",
   "version": 2,
   "builds": [
     {
