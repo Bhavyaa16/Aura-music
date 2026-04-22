@@ -10,14 +10,14 @@
       }
     }
   ],
-  "routes": [
+  "rewrites": [
     {
-      "src": "/api/(.*)",
-      "dest": "https://aura-music-ep21.onrender.com/api/$1"
+      "source": "/api/(.*)",
+      "destination": "https://aura-music-ep21.onrender.com/api/$1"
     },
     {
-      "src": "/(.*)",
-      "dest": "/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
