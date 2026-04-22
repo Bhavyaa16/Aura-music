@@ -12,7 +12,7 @@
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "https://your-backend-url.onrender.com/api/$1"
+      "dest": "https://aura-music-ep21.onrender.com/api/$1"
     },
     {
       "src": "/(.*)",
