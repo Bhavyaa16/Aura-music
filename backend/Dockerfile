@@ -8,6 +8,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY . .
 
 ENV PYTHONUNBUFFERED=1
-EXPOSE 5000
+ENV PORT=5000
+EXPOSE $PORT
 
-CMD ["gunicorn", "app:app", "--bind", "0.0.0.0:5000", "--workers", "3", "--threads", "2"]
+CMD gunicorn app:app --bind 0.0.0.0:$PORT --workers 3 --threads 2
